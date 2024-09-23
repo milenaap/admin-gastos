@@ -53,13 +53,13 @@
                     @input="$emit('update:categoria', $event.target.value)"
                 >
                     <option value="">-- Seleccione --</option>
-                    <option value="ahorro">Ahorro</option>
-                    <option value="comida">Comida</option>
-                    <option value="casa">Casas</option>
-                    <option value="gastos">Gastos Varios</option>
-                    <option value="ocio">Ocio</option>
-                    <option value="salud">Salud</option>
-                    <option value="suscrpciones">Suscripciones</option>
+                    <option value="Ahorro">Ahorro</option>
+                    <option value="Comida">Comida</option>
+                    <option value="Casa">Casas</option>
+                    <option value="Gastos">Gastos Varios</option>
+                    <option value="Ocio">Ocio</option>
+                    <option value="Salud">Salud</option>
+                    <option value="Suscripciones">Suscripciones</option>
                 </select>
             </div>
 
