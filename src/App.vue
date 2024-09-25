@@ -79,6 +79,14 @@ const guardarGasto = () => {
   })
 }
 
+const seleccionarGasto = id => {
+  const gastoEditar = gastos.value.filter(gasto => gasto.id === id)[0]
+  Object.assign(gasto, gastoEditar);
+  mostrarModal()
+}
+
+
+
 </script>
 
 <template>
@@ -114,6 +122,7 @@ const guardarGasto = () => {
           v-for="gasto in gastos"
           :key="gasto.id"
           :gasto="gasto"
+          @seleccionar-gasto="seleccionarGasto"
         />
       </div>
 
@@ -121,8 +130,17 @@ const guardarGasto = () => {
         <img :src="iconoNuevoGasto" alt="icono" @click.prevent="mostrarModal" />
       </div>
 
-      <Modal v-if="modal.mostrar" @ocultar-modal="ocultarModal" @guardar-gasto="guardarGasto" :modal="modal"
-        v-model:nombre="gasto.nombre" v-model:cantidad="gasto.cantidad" v-model:categoria="gasto.categoria" />
+      <Modal 
+        v-if="modal.mostrar" 
+        @ocultar-modal="ocultarModal" 
+        @guardar-gasto="guardarGasto" 
+        :modal="modal"
+        :disponible="disponible"
+        v-model:nombre="gasto.nombre" 
+        v-model:cantidad="gasto.cantidad" 
+        v-model:categoria="gasto.categoria"
+
+      />
     </main>
 
   </div>
