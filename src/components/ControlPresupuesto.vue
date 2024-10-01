@@ -1,11 +1,19 @@
 <template>
     <div class="dos-columnas">
         <div class="contenedor-grafico">
-            <img :src="imagen" />
+            <CircleProgress 
+                :percent="50"
+                :size="250"
+                :border-width="50"
+                :border-bg-width="50"
+            />
         </div>
-
+<!-- AGREGAR LO Q FALTA DEL CURSO REVISAR -->
         <div class="contenedor-presupuesto">
-            <button class="reset-app"
+            <button 
+                class="reset-app"
+                type="button"
+                @click="$event => $emit('reset-app')"
             >Resetear App</button>
             <p>
                 <span>Presupuesto:</span>
@@ -26,9 +34,11 @@
 </template>
 
 <script setup>
-import imagen from '../assets/img/grafico.jpg'
+import CircleProgress from 'vue3-circle-progress'
+import "vue3-circle-progress/dist/circle-progress.css"
 import {formatearCantidad} from '../helpers'
 
+defineEmits(['reset-app'])
 const props = defineProps({
     presupuesto:{
         type: Number,
